@@ -1,0 +1,30 @@
+classDiagram
+    class Program {
+        <<จุดเริ่มต้นโปรแกรม>>
+        +Main(string[] args)$
+    }
+
+    class VendingMachine {
+        -int water : น้ำ
+        -int coffee : กาแฟ
+        -int chocolate : ช็อกโกแลต
+        -int milk : นม
+        +VendingMachine(w, c, ch, m) ตั้งค่าเริ่มต้น
+        +MakeDrink(name, reqW, reqC, reqCh, reqM) ชงเครื่องดื่ม
+        +ShowStock() แสดงวัตถุดิบที่เหลือ
+        +IncreaseStock(w, c, ch, m) เติมวัตถุดิบ
+    }
+
+    class MenuOperations {
+        <<เมนูที่เลือกได้>>
+        1. อเมริกาโน่
+        2. มอคค่า
+        3. ลาเต้
+        4. ช็อกโกแลต
+        5. ดูวัตถุดิบ
+        6. เติมของ
+        0. ออกจากโปรเเกรม
+    }
+
+    Program ..> VendingMachine : "สร้าง Object และควบคุมการทำงาน"
+    VendingMachine ..> MenuOperations : "จัดการตามคำสั่งเมนู"
